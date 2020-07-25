@@ -29,16 +29,15 @@ const Flexi = ({ onSubmitFn, config }) => {
                 <div className='card-body'>
                     <form>
                         {(config.length > 0) ? config.map((val, index) => {
-                            if (val.type === "TextField") {
-                                return (
+
+                            return <div>
+                                {val.type === "TextField" &&
                                     <div className='form-group'>
                                         <label htmlFor={val.label}>{val.label}:</label>
                                         <input type="text" className='form-control' id={val.label} onChange={changeHandler} />
                                     </div>
-                                );
-                            }
-                            if (val.type === "DropDown") {
-                                return (
+                                }
+                                {val.type === "DropDown" &&
                                     <div className='form-group'>
                                         <label htmlFor={val.label}>{val.label}:</label>
                                         <select type="text" className='form-control' id={val.label} onChange={changeHandlerDD}>
@@ -48,8 +47,8 @@ const Flexi = ({ onSubmitFn, config }) => {
                                             })}
                                         </select>
                                     </div>
-                                );
-                            }
+                                }
+                            </div>
                         }) : <p>No data received</p>}
                     </form>
                 </div>
